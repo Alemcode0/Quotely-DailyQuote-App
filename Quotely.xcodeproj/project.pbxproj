@@ -10,7 +10,10 @@
 		4EBFFE822CC243D600474B90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EBFFE7C2CC243D600474B90 /* Preview Assets.xcassets */; };
 		4EBFFE832CC243D600474B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EBFFE7E2CC243D600474B90 /* Assets.xcassets */; };
 		4EBFFE852CC243D600474B90 /* QuotelyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBFFE802CC243D600474B90 /* QuotelyApp.swift */; };
-		CE3FA6482CD8CB5800671DFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FA6472CD8CB5500671DFC /* ContentView.swift */; };
+		6A0E28AE2CE24B5800C152BA /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0E28AD2CE24B5800C152BA /* QuoteView.swift */; };
+		6A0E28B22CE2C1A600C152BA /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0E28B12CE2C1A600C152BA /* CategoryView.swift */; };
+		6A0E29222CE3538700C152BA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0E29212CE3536B00C152BA /* Category.swift */; };
+		6A0E29242CE3579500C152BA /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0E29232CE3578F00C152BA /* Quote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,7 +22,10 @@
 		4EBFFE7E2CC243D600474B90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EBFFE802CC243D600474B90 /* QuotelyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotelyApp.swift; sourceTree = "<group>"; };
 		4EBFFE982CC24CA700474B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		CE3FA6472CD8CB5500671DFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6A0E28AD2CE24B5800C152BA /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		6A0E28B12CE2C1A600C152BA /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		6A0E29212CE3536B00C152BA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		6A0E29232CE3578F00C152BA /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +66,32 @@
 		4EBFFE812CC243D600474B90 /* Quotely */ = {
 			isa = PBXGroup;
 			children = (
+				6A0E28AC2CE24B4700C152BA /* View */,
+				6A0E28AB2CE24B3900C152BA /* Model */,
 				4EBFFE982CC24CA700474B90 /* Info.plist */,
 				4EBFFE7E2CC243D600474B90 /* Assets.xcassets */,
 				4EBFFE802CC243D600474B90 /* QuotelyApp.swift */,
-				CE3FA6472CD8CB5500671DFC /* ContentView.swift */,
 				4EBFFE7D2CC243D600474B90 /* Preview Content */,
 			);
 			path = Quotely;
+			sourceTree = "<group>";
+		};
+		6A0E28AB2CE24B3900C152BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6A0E29232CE3578F00C152BA /* Quote.swift */,
+				6A0E29212CE3536B00C152BA /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6A0E28AC2CE24B4700C152BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A0E28AD2CE24B5800C152BA /* QuoteView.swift */,
+				6A0E28B12CE2C1A600C152BA /* CategoryView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE3FA6482CD8CB5800671DFC /* ContentView.swift in Sources */,
 				4EBFFE852CC243D600474B90 /* QuotelyApp.swift in Sources */,
+				6A0E28AE2CE24B5800C152BA /* QuoteView.swift in Sources */,
+				6A0E28B22CE2C1A600C152BA /* CategoryView.swift in Sources */,
+				6A0E29242CE3579500C152BA /* Quote.swift in Sources */,
+				6A0E29222CE3538700C152BA /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +327,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -333,7 +361,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
