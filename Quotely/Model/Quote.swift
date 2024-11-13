@@ -5,8 +5,8 @@
 //  Created by Alemayehu Hailye on 12.11.24.
 //
 
-struct Quote : Codable {
-    var id: Int
+struct Quote : Codable, Identifiable {
+    var id: String
     var text: String
     var author: String
     var category: String

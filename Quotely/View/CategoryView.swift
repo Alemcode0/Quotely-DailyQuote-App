@@ -17,6 +17,10 @@ struct CategoryView: View {
         Category(name: "Love"),
         Category(name: "Inspirational"),
         Category(name: "Happiness"),
+        Category(name: "Education"),
+        Category(name: "Future"),
+        Category(name: "Wisdom"),
+        Category(name: "Courage"),
         Category(name: "Friendship")
     ]
     
@@ -25,22 +29,44 @@ struct CategoryView: View {
         GridItem(.flexible())
     ]
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(categories) { category in
-                    VStack {
-                        Text(category.name)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue.opacity(0.2))
-                            .cornerRadius(20)
-                            .font(.headline)
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(categories) { category in
+                        NavigationLink(destination: CategoryDetailView()) {
+                            VStack {
+                                Text(category.name)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.blue.opacity(0.4))
+                                    .cornerRadius(20)
+                                    .font(.headline)
+                                    //.foregroundStyle(.white)
+                            }
+                        }
+                        
                     }
-                    
+                }
+                .padding()
+            }
+            .background(Image("flower5")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 670))
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Categories for you")
+                        .font(.system(size: 30, weight: .bold, design: .default))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                 }
             }
-            .padding()
+            
         }
+        .font(.largeTitle)
+        .foregroundStyle(.white)
+        
+        
     }
 }
 
