@@ -39,14 +39,20 @@ struct AuthorListView: View {
                                     .foregroundColor(.gray)
                             }
                             
-                            //.padding()
                         }
                         .listRowBackground(Color.blue.opacity(0.6))
                     }
-                    .navigationTitle("Authors")
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Text("Authors")
+                                .font(.system(size: 40, weight: .bold, design: .default))
+                                .foregroundColor(.white)
+                                .shadow(color: .black, radius: 5, x: 2, y: 4)
+                                
+                        }
+                    }
                     .listRowSpacing(6)
                     .scrollContentBackground(.hidden)
-                    
                     .padding(.bottom, 16)
                 }
             }

@@ -46,7 +46,15 @@ struct AuthorDetailView: View {
                 .padding(.bottom, 16)
             }
         }
-        .navigationTitle(author.name)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Text(author.name)
+                    .font(.system(size: 30, weight: .bold, design: .default))
+                    .foregroundColor(.white)
+                    .shadow(color: .black, radius: 5, x: 2, y: 4)
+                    
+            }
+        }
         .onAppear {
             fetchQuotesForAuthor()
         }
