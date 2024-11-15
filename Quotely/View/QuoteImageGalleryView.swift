@@ -9,7 +9,8 @@ import SwiftUI
 
 struct QuoteImageGalleryView: View {
     
-    @State var selectedImage: Image?
+    @State private var selectedImage: String? = nil
+    @State private var isSheetPresented: Bool = false
     
     var image: [String] = ["motivational", "life", "success", "funny", "love", "inspirational", "happiness", "education"]
     
@@ -26,12 +27,26 @@ struct QuoteImageGalleryView: View {
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(20)
+                            .onTapGesture {
+                                selectedImage = image
+                                isSheetPresented = true
+                            }
                     }
                 }
             }
         }
         .padding()
-        .background(.black)
+        .background(Image("flower5")
+            .resizable()
+            .scaledToFill()
+            .frame(width: 670)
+        )
+        .sheet(isPresented: $isSheetPresented) {
+                    if let selectedImage = selectedImage {
+                        EnlargedImageView(imageName: selectedImage)
+                    }
+                }
+        
     }
 }
 
