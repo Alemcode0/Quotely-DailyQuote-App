@@ -16,7 +16,7 @@ struct AuthorListView: View {
     var body: some View {
         NavigationStack {
             VStack {
-            
+                
                 if isLoading {
                     ProgressView("Loading Authors...")
                         .progressViewStyle(CircularProgressViewStyle())
@@ -48,7 +48,7 @@ struct AuthorListView: View {
                                 .font(.system(size: 40, weight: .bold, design: .default))
                                 .foregroundColor(.white)
                                 .shadow(color: .black, radius: 5, x: 2, y: 4)
-                                
+                            
                         }
                     }
                     .listRowSpacing(6)
@@ -65,14 +65,9 @@ struct AuthorListView: View {
             .onAppear {
                 fetchAuthors()
             }
-            
         }
-        
-        
-        
     }
     
-    // Funktion zum Abrufen 
     private func fetchAuthors() {
         isLoading = true
         Task {
@@ -86,8 +81,7 @@ struct AuthorListView: View {
             isLoading = false
         }
     }
-
-    // API-Aufruf für die Autoren
+    
     private func getAuthorsFromAPI() async throws -> [Author] {
         let urlString = "https://api.syntax-institut.de/authors?key=RV7lwPJqlLQyKKsQc1BPPE5RPjhsiruv"
         guard let url = URL(string: urlString) else {
@@ -105,7 +99,6 @@ struct AuthorListView: View {
             throw HTTPError.invalidResponse
         }
         
-        // Dekodiere die JSON-Antwort
         return try JSONDecoder().decode([Author].self, from: data)
     }
 }

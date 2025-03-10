@@ -17,19 +17,17 @@ struct QuoteView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
-                // Zitat-Anzeige
+                
                 VStack {
                     Image("quoteTitle")
                         .resizable()
                         .scaledToFit()
                         .frame(width:300, height: 200)
                         .padding(.bottom, -40)
-                        //.foregroundColor(.white)
-                        //.shadow(color: .blue, radius: 2, x: 2, y: 4)
                     
                     Image("Summer1")
                         .resizable()
-                        //.scaledToFit()
+                    //.scaledToFit()
                         .frame(width: 370, height: 530)
                         .cornerRadius(50)
                         .shadow(radius: 3, x: 4, y: 6)
@@ -41,8 +39,6 @@ struct QuoteView: View {
                                         .frame(width: 390, height: 550)
                                         .position(x: 186, y: 264)
                                     
-                                    
-                                    // Anzeige des Zitats
                                     VStack {
                                         if let quote = selectedQuote {
                                             Text(quote.text)
@@ -53,7 +49,7 @@ struct QuoteView: View {
                                                 .padding()
                                             
                                             Spacer(minLength: -30)
-                                        
+                                            
                                             Text(" - \(quote.author)")
                                                 .font(.headline)
                                                 .foregroundStyle(.syntaxDeepPurple)
@@ -76,8 +72,6 @@ struct QuoteView: View {
                         .padding()
                 }
                 
-                
-                // Button, um ein zufälliges Zitat zu laden
                 Button(action: fetchQuotes) {
                     Label("Next", systemImage: "arrow.forward.circle.dotted")
                 }
@@ -86,8 +80,6 @@ struct QuoteView: View {
                 .tint(.blue)
                 .foregroundStyle(.white)
                 .padding()
-                
-                
                 
             }
             .background(
@@ -104,7 +96,6 @@ struct QuoteView: View {
         }
     }
     
-    // Funktion, um Zitate aus der API zu laden
     func getQuoteFromAPI() async throws -> [Quote] {
         let urlString = "https://api.syntax-institut.de/quotes"
         guard let url = URL(string: urlString) else {
@@ -116,13 +107,12 @@ struct QuoteView: View {
         return result
     }
     
-    // Funktion, um die Zitate zu laden
     private func fetchQuotes() {
         isLoading = true
         Task {
             do {
                 quotes = try await getQuoteFromAPI()
-                loadRandomQuote() // Lade ein zufälliges Zitat nach dem Abrufen
+                loadRandomQuote()
             } catch {
                 errorMessage = "Failed to load quotes: \(error.localizedDescription)"
             }
@@ -130,7 +120,6 @@ struct QuoteView: View {
         }
     }
     
-    // Funktion, um ein zufälliges Zitat auszuwählen
     private func loadRandomQuote() {
         if !quotes.isEmpty {
             selectedQuote = quotes.randomElement()

@@ -12,7 +12,6 @@ struct QuoteImageGalleryView: View {
     @State private var selectedImage: ImageGallery? = nil
     @State private var isSheetPresented: Bool = false
     
-    // Deine ImageGallery-Daten
     @State var images: [ImageGallery] = [
         ImageGallery(title: "Motivational", images: "motivational"),
         ImageGallery(title: "Life", images: "life"),
@@ -43,7 +42,6 @@ struct QuoteImageGalleryView: View {
                                 isSheetPresented = true
                             }
                         
-                        // Titel unter jedem Bild anzeigen
                         Text(imageGallery.title)
                             .font(.headline)
                             .padding(.top, 5)
@@ -61,7 +59,6 @@ struct QuoteImageGalleryView: View {
         )
         .sheet(isPresented: $isSheetPresented) {
             if let selectedImage = selectedImage {
-                // Sheet mit Titel und Bild
                 VStack {
                     Text(selectedImage.title)
                         .font(.largeTitle)

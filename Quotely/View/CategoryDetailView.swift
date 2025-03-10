@@ -9,11 +9,11 @@ import SwiftUI
 
 struct CategoryDetailView: View {
     let categoryName: String
-        
-        @State private var quotes: [Quote] = []
-        @State private var isLoading = false
-        @State private var errorMessage: String?
-        
+    
+    @State private var quotes: [Quote] = []
+    @State private var isLoading = false
+    @State private var errorMessage: String?
+    
     var body: some View {
         VStack {
             VStack {
@@ -42,7 +42,6 @@ struct CategoryDetailView: View {
                     }
                     .listRowSpacing(4)
                     .scrollContentBackground(.hidden)
-                    //.cornerRadius(40)
                     .padding(.bottom, 16)
                 }
             }
@@ -59,7 +58,6 @@ struct CategoryDetailView: View {
                         .foregroundColor(.white)
                 }
             }
-            //.navigationTitle("\(categoryName) Quotes").foregroundColor(.blue)
             .onAppear {
                 fetchQuotes(for: categoryName)
             }
@@ -68,36 +66,34 @@ struct CategoryDetailView: View {
         }
         
     }
-
-        // API-Aufruf zum Laden von Zitaten basierend auf der Kategorie
-        func getQuotesForCategoryFromAPI(category: String) async throws -> [Quote] {
-            let urlString = "https://api.syntax-institut.de/quotes?limit=20&category=\(category)"
-            guard let url = URL(string: urlString) else {
-                throw HTTPError.invalidURL
-            }
-            
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let result = try JSONDecoder().decode([Quote].self, from: data)
-            return result
+    
+    func getQuotesForCategoryFromAPI(category: String) async throws -> [Quote] {
+        let urlString = "https://api.syntax-institut.de/quotes?limit=20&category=\(category)"
+        guard let url = URL(string: urlString) else {
+            throw HTTPError.invalidURL
         }
-
-        // Funktion zum Abrufen der Zitate
-        private func fetchQuotes(for category: String) {
-            isLoading = true
-            errorMessage = nil
-            Task {
-                do {
-                    quotes = try await getQuotesForCategoryFromAPI(category: category)
-                } catch {
-                    errorMessage = "Failed to load quotes: \(error.localizedDescription)"
-                }
-                isLoading = false
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let result = try JSONDecoder().decode([Quote].self, from: data)
+        return result
+    }
+    
+    private func fetchQuotes(for category: String) {
+        isLoading = true
+        errorMessage = nil
+        Task {
+            do {
+                quotes = try await getQuotesForCategoryFromAPI(category: category)
+            } catch {
+                errorMessage = "Failed to load quotes: \(error.localizedDescription)"
             }
+            isLoading = false
         }
     }
+}
 
-    #Preview {
-        NavigationStack {
-            CategoryDetailView(categoryName: "Motivational")
-        }
+#Preview {
+    NavigationStack {
+        CategoryDetailView(categoryName: "Motivational")
     }
+}

@@ -87,7 +87,6 @@ private func getQuotesFromAPI(authorId: String) async throws -> [Quote] {
         
     let urlString = "https://api.syntax-institut.de/quotes?limit=20&author=\(authorSlug)&key=\(apiKey)"
     
-        
     guard let url = URL(string: urlString) else {
         throw HTTPError.invalidURL
         

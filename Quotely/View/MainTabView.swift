@@ -18,7 +18,6 @@ struct MainTabView: View {
                         Image(systemName: "quote.bubble.fill")
                         
                     }
-                    
                 }
             
             CategoryView()
@@ -28,7 +27,6 @@ struct MainTabView: View {
                     } icon: {
                         Image(systemName: "square.grid.2x2.fill")
                     }
-                    
                 }
             
             QuoteImageGalleryView()
@@ -38,9 +36,7 @@ struct MainTabView: View {
                     } icon: {
                         Image(systemName: "bubbles.and.sparkles.fill")
                         
-                        
                     }
-                    
                 }
             AuthorListView()
                 .tabItem {
@@ -49,12 +45,8 @@ struct MainTabView: View {
                     } icon: {
                         Image(systemName: "bubble.and.pencil")
                         
-                        
                     }
-                    
                 }
-            
-            
         }
         .onAppear(perform: {
             UITabBar.appearance().unselectedItemTintColor = .systemYellow
