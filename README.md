@@ -1,5 +1,6 @@
-# 📜 Quotely 
+# &nbsp;📜 Quotely 
 ## Your Daily Dose of Inspiration
+![image alt](https://github.com/Alemcode0/api-Quotely-Alemcode0/blob/student/QuotelyApp1.png)   &nbsp;     ![image alt](https://github.com/Alemcode0/api-Quotely-Alemcode0/blob/student/QuotelyApp2.png)
 
 Quotely is a beautifully designed iOS app built with Swift, allowing users to discover daily inspirational quotes and explore quotes by category, author, and even image galleries. Powered by an API, Quotely ensures that you always have fresh and meaningful quotes at your fingertips.
 
@@ -32,8 +33,6 @@ Framework: SwiftUI
 Networking: URLSession 
 
 API: (Syntax quote API)
-
-## 📸 Screenshots
 
 ## 🤝 Contributing
 
