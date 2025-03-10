@@ -7,22 +7,22 @@ Quotely is a beautifully designed iOS app built with Swift, allowing users to di
 ## ✨ Features
 
 ### Daily Quote 
-– Start your day with an inspiring quote.
+- Start your day with an inspiring quote.
 
 ### Browse by Category 
-– Explore quotes from different categories.
+- Explore quotes from different categories.
 
 ### Category Details 
-– View quotes within a selected category.
+- View quotes within a selected category.
 
 ### Quote Image Gallery 
-– Discover visually appealing quotes.
+- Discover visually appealing quotes.
 
 ### Author List 
-– Find quotes from your favorite authors.
+- Find quotes from your favorite authors.
 
 ### Author Details 
-– Learn more about the authors behind the wisdom.
+- Learn more about the authors behind the wisdom.
 
 ## 🛠️ Tech Stack
 
